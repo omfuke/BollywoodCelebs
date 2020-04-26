@@ -5,8 +5,8 @@ import re
 
 class Celebs(scrapy.Spider):
 
-    name = 'topceleb'
-    url = 'https://www.imdb.com/list/ls068010962/'
+    name = 'modernceleb'
+    url = 'https://www.imdb.com/list/ls002913270/'
 
     def start_requests(self):
         yield scrapy.Request(url=self.url , callback= self.parse)

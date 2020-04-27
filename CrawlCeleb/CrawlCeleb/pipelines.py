@@ -13,12 +13,12 @@ class CrawlcelebPipeline(object):
         self.create_table()
 
     def create_connection(self):
-        self.conn = sqlite3.connect('celeb3.db')
+        self.conn = sqlite3.connect('celeb.db')
         self.curr = self.conn.cursor()
 
     def create_table(self):
-        self.curr.execute("""DROP TABLE IF EXISTS top_celeb""")
-        self.curr.execute("""create table top_celeb(
+        self.curr.execute("""DROP TABLE IF EXISTS modern_celeb""")
+        self.curr.execute("""create table modern_celeb(
                             name TEXT,
                             producer INT,
                             director INT,
@@ -38,7 +38,7 @@ class CrawlcelebPipeline(object):
 
 
     def store_db(self,item):
-        self.curr.execute("""INSERT INTO top_celeb values(?,?,?,?,?,?,?,?)""",(
+        self.curr.execute("""INSERT INTO modern_celeb values(?,?,?,?,?,?,?,?)""",(
             item['name'],
             item['producer'],
             item['director'],

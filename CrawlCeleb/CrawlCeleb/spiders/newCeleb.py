@@ -56,7 +56,8 @@ class Celebs(scrapy.Spider):
             credits = response.css('#filmo-head-actress::text').extract()[-1].lstrip(' ').replace('\n','')
             credits = int(re.search(r'\d+', credits).group())
 
-        image = ', '.join(response.css('.mediastrip .loadlate::attr(src)').extract())
+        image = response.css('#name-poster::attr(src)').get()
+
 
 
         try:
